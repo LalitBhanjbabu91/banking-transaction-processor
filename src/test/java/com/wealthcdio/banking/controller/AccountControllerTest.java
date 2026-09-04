@@ -2,30 +2,23 @@ package com.wealthcdio.banking.controller;
 
 
 import com.wealthcdio.banking.domain.Account;
-import com.wealthcdio.banking.domain.Transaction;
 import com.wealthcdio.banking.domain.TransactionType;
 import com.wealthcdio.banking.dto.TransactionResponse;
 import com.wealthcdio.banking.exception.AccountNotFoundException;
 import com.wealthcdio.banking.exception.GlobalExceptionHandler;
-import com.wealthcdio.banking.exception.InsufficientBalanceException;
-import com.wealthcdio.banking.repository.AccountRepository;
 import com.wealthcdio.banking.service.BankingService;
 import org.junit.jupiter.api.Test;
-import org.mockito.ArgumentCaptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
 import org.springframework.context.annotation.Import;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.List;
-
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
